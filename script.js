@@ -49,3 +49,59 @@ document.addEventListener('keydown', (e) => {
     playNote(blackKeys[blackKeyIndex]);
   }
 });
+
+const autoPlayBtn = document.getElementById('playButton');
+
+const happyBirthday = [
+    { note: 'C', delay: 400 },
+    { note: 'C', delay: 400 },
+    { note: 'D', delay: 800 },
+    { note: 'C', delay: 800 },
+    { note: 'F', delay: 800 },
+    { note: 'E', delay: 1000 }, // long pause
+
+    { note: 'C', delay: 400 },
+    { note: 'C', delay: 400 },
+    { note: 'D', delay: 800 },
+    { note: 'C', delay: 800 },
+    { note: 'G', delay: 800 },
+    { note: 'F', delay: 1000 },
+
+    { note: 'C', delay: 400 },
+    { note: 'C', delay: 400 },
+    { note: 'Cb', delay: 800 },
+    { note: 'A', delay: 800 },
+    { note: 'G', delay: 800 },
+    { note: 'E', delay: 800 },
+    { note: 'D', delay: 1000 },
+
+    { note: 'Ab', delay: 400 },
+    { note: 'Ab', delay: 400 },
+    { note: 'A', delay: 800 },
+    { note: 'F', delay: 800 },
+    { note: 'G', delay: 800 },
+    { note: 'F', delay: 1000 },
+];
+
+function sleep(ms){
+    return new Promise(resolve => setTimeout(resolve,ms));
+}
+async function playSong(){
+    for (let i = 0; i < happyBirthday.length; i++){
+        const item = happyBirthday[i];
+
+        const keyElement = document.querySelector(`[data-note="${item.note}"]`);
+
+        if(keyElement){
+            keyElement.click();
+            keyElement.classList.add('active');
+            await sleep(item.delay);
+
+            keyElement.classList.remove('active');
+
+            await sleep(50);
+        }
+    }
+}
+autoPlayBtn.addEventListener('click', playSong);
+
