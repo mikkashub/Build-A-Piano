@@ -13,11 +13,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 30px;
 }
 
 /* Style the piano to use flex box */
 .piano {
   display: flex;
+  border: 3px solid #000000;
 }
 
 .key {
@@ -44,5 +47,19 @@ body {
     background-color: #ccc;
 }
 .black.active {
+    background-color: #333;
+}
+
+/* Create Button to play Happy birthday */
+#playButton {
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+#playButton:hover {
     background-color: #333;
 }
