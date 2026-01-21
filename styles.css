@@ -1,0 +1,65 @@
+/* CSS reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  background-color: #ff88e7;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Style the piano to use flex box */
+.piano {
+  display: flex;
+  border: 3px solid #000000;
+}
+
+.key {
+  /* CSS variables */
+  height: calc(var(--width) * 4);
+  width: var(--width);
+}
+
+.white {
+  --width: 100px;
+  background-color: white;
+  border: 1px solid #333;
+}
+
+.black {
+  --width: 60px;
+  background-color: black;
+  margin-left: calc(var(--width) / -2);
+  margin-right: calc(var(--width) / -2);
+  z-index: 2;
+}
+
+.white.active {
+    background-color: #ccc;
+}
+.black.active {
+    background-color: #333;
+}
+
+/* Create Button to play Happy birthday */
+#playButton {
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+#playButton:hover {
+    background-color: #333;
+}
